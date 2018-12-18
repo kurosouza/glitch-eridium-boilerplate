@@ -1,4 +1,20 @@
-# React/Babel/Webpack Boilerplate
+# Babel ES6, React Router Glitch boilerplate
+
+## Introduction
+
+Hello guys! This repository is a quickstart for your glitch app. Its a preset with Babel included - which enables a whole lot of modern JS language features. 
+
+I've also added the great React Router library.
+
+You can also run your apps locally by executing `npm start`
+
+## Credits
+
+This repository is based on work from https://glitch.com/~clammy-cotton
+
+Glitch culture-zine article [https://glitch.com/edit/#!/starter-react-router](https://glitch.com/edit/#!/starter-react-router)
+
+## React/Babel/Webpack Boilerplate
 
 Hello friends! This project is set up and ready to go with React, webpack, and Babel. It will take care of fun stuff like supporting the latest and greatest ECMAScript features, compiling your JSX to JavaScript, and more.
 
