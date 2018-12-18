@@ -7,7 +7,7 @@
   "description": "A boilerplate for getting a web application off the ground using React and Babel for JSX.",
   "main": "server.js",
   "scripts": {
-    "start": "rimraf ./public && webpack && babel-register server"
+    "start": "rimraf ./public && webpack && node server.js"
   },
   "dependencies": {
     "express": "^4.15.3",
