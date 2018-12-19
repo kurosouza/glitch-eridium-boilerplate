@@ -12,7 +12,7 @@ module.exports = {
     filename: 'public/bundle.js'
   },
   module: {
-    rules: [
+    rules: [      
       {
         test: /\.css$/, 
         use: ExtractTextPlugin.extract({
