@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Grommet } from 'grommet';
+
+import { Box, Grommet, Heading, Text } from 'grommet';
+import { Apps, Archive } from 'grommet-icons';
 
 import { Route, BrowserRouter, hashHistory } from 'react-router-dom';
 
@@ -19,12 +21,23 @@ const theme = {
 
 render(
     <Grommet theme={theme}>
-        <BrowserRouter>
-            <div>
-                <Route exact path="/" component={Main} />
-                <Route path='/about' component={About} />
-            </div>
-        </BrowserRouter>
+        <Box direction='column' full>
+            <Box direction='row' justify='between' background='brand'>
+                <Box margin='small'><Apps /></Box>
+                <Text margin='small'>my app</Text>
+                <Box margin='small'><Archive /></Box>
+            </Box>
+            <Box margin='small'>
+
+                <BrowserRouter>
+                    <div>
+                        <Route exact path="/" component={Main} />
+                        <Route path='/about' component={About} />
+                    </div>
+                </BrowserRouter>
+
+            </Box>
+        </Box>
     </Grommet>
     ,
     document.getElementById('app'));
