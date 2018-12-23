@@ -7,13 +7,15 @@
   "description": "A boilerplate for getting a web application off the ground using React and Babel for JSX.",
   "main": "server.js",
   "scripts": {
-    "build": "webpack",
-    "start": "rimraf ./public && webpack && node server.js"
+    "build": "rimraf ./dist && webpack",
+    "start": "webpack && node server.js",
+    "dev": "npm run build && cross-env NODE_ENV=development webpack-dev-server --open"
   },
   "dependencies": {
     "express": "^4.15.3",
     "grommet": "^2.2.1",
     "grommet-icons": "^4.1.0",
+    "monaco-editor": "^0.15.6",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-router-dom": "^4.3.1",
@@ -27,13 +29,17 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "babel-register-cli": "^4.0.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.27.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "*",
+    "monaco-editor-webpack-plugin": "^1.7.0",
     "rimraf": "^2.6.1",
+    "style-loader": "^0.16.1",
     "webpack": "^2.5.0",
-    "webpack-dev-server": "^2.5.0",
-    "style-loader": "^0.16.1"
+    "webpack-dev-server": "^2.5.0"
   },
   "babel": {
     "presets": [

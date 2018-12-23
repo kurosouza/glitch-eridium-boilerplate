@@ -1,16 +1,29 @@
 const path = require("path");
 
 const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-module.exports = {
+const baseConfig = {
+  devServer: {
+    port: 8567,
+    contentBase: path.resolve('./public'),
+    historyApiFallback: true,    
+  },
+  resolve: {
+    extensions: ['.js','.json']
+  },
   entry: {
     main: "./app/index.js"
   },
   output: {
-    filename: 'public/bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/',
+    path: path.resolve('./public'),
   },
+  resolve: {
+    extensions: ['.js', '.json'],
+  },
+  
   module: {
     rules: [      
       {
@@ -26,13 +39,33 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'react', 'stage-3']
+            presets: ['env', 'react', 'stage-2']
           }
         }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+            'file-loader',            
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                disable: true,
+              },
+            },          
+        ]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin({filename: "[name].css", allChunks: true})
+   new ExtractTextPlugin({filename: "[name].css", allChunks: true}),
   ]
 }
+
+const env = process.env || 'development';
+
+if(env !== 'production') {
+  baseConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+}
+
+module.exports = baseConfig;
