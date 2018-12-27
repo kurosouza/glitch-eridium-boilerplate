@@ -3,11 +3,19 @@ const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+const port = process.env.PORT;
+
 const baseConfig = {
   devServer: {
     port: 8567,
     contentBase: path.resolve('./public'),
-    historyApiFallback: true,    
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: `http://localhost:${port}`,
+        secure: false
+      }
+    },
   },
   resolve: {
     extensions: ['.js','.json']
