@@ -2,6 +2,12 @@ const path = require("path");
 
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+  template: './app/index.html',
+  filename: './index.html'
+})
 
 const port = process.env.PORT;
 
@@ -34,12 +40,19 @@ const baseConfig = {
   
   module: {
     rules: [      
+      /*
       {
         test: /\.css$/, 
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: "css-loader"
         })
+      },
+      */
+
+      {
+        test: /\.css$/,
+        loader:["style-loader", "css-loader"]
       },
       {
         test: /\.js$/,
@@ -66,7 +79,8 @@ const baseConfig = {
     ]
   },
   plugins: [
-   new ExtractTextPlugin({filename: "[name].css", allChunks: true}),
+   // new ExtractTextPlugin({filename: "style.css", allChunks: true}),
+    htmlWebpackPlugin
   ]
 }
 
