@@ -23,9 +23,7 @@ const baseConfig = {
       }
     },
   },
-  resolve: {
-    extensions: ['.js','.json']
-  },
+
   entry: {
     main: "./app/index.js"
   },
@@ -37,6 +35,8 @@ const baseConfig = {
   resolve: {
     extensions: ['.js', '.json'],
   },
+
+  devtool: 'eval-source-map',
   
   module: {
     rules: [      
