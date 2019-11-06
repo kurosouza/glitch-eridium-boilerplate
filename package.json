@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack && node server.js",
-    "dev": "webpack && cross-env NODE_ENV=development webpack-dev-server --open",
+    "dev": "webpack && webpack-dev-server --open --mode development",
     "dev-local-server": "PORT=36000 concurrently \"npm run dev\" \"node server.js\""
   },
   "dependencies": {
@@ -21,8 +21,8 @@
     "grommet": "^2.2.1",
     "grommet-icons": "^4.1.0",
     "monaco-editor": "^0.15.6",
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "react-router-dom": "^4.3.1",
     "styled-components": "^4.1.3"
   },
@@ -44,8 +44,9 @@
     "monaco-editor-webpack-plugin": "^1.7.0",
     "rimraf": "^2.6.1",
     "style-loader": "^0.16.1",
-    "webpack": "^2.5.0",
-    "webpack-dev-server": "^2.5.0"
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.0"
   },
   "babel": {
     "presets": [

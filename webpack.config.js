@@ -24,6 +24,7 @@ const baseConfig = {
     },
   },
 
+  mode: 'production',
   entry: {
     main: "./app/index.js"
   },
